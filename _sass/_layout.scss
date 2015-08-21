@@ -37,6 +37,7 @@
 .site-nav {
     float: right;
     line-height: 56px;
+    display: -webkit-inline-box;
 
     .menu-icon {
         display: none;
@@ -178,6 +179,8 @@
 
 .page-heading {
     font-size: 20px;
+    margin: auto;
+    padding: auto;
 }
 
 .post-list {
