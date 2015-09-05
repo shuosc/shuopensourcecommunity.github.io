@@ -1,25 +1,30 @@
 <div id="slidorion">
 
 <div id="slider">
-  <div class="slider-image" rel="section1">
-    <img src="images/tuijian1.jpg" style="width:488px; height:400px;" >
+  {% for post in site.categories.activity limit:3 %}
+  <div class="slider-image" rel="{{ forloop.index | prepend:'section'}}">
+    <img src="{{ post.img_src }}" style="width:488px; height:400px;" >
   </div>
-  <div class="slider-image" rel="section2">
+  {% endfor %}
+  <!-- <div class="slider-image" rel="section2">
     <img src="images/tuijian2.jpg" style="width:488px; height:400px;" >
   </div>
   <div class="slider-image" rel="section3">
     <img src="images/tuijian3.jpg" style="width:488px; height:400px;">
-  </div>
+  </div> -->
 
 </div>
 
 <div id="accordion">
-    <div class="header"><a class="slider-link" rel="section1">[推荐]精彩活动标题一</a></div>
+    {% for post in site.categories.activity limit：3 %}
+
+    <div class="header"><a class="slider-link" rel="{{ forloop.index | prepend:'section'}}">{{ post.title }}</a></div>
     <div class="content">
-      <p>活动一介绍巴拉巴拉巴拉巴拉巴拉巴拉</p>
-      <a href="">Read more</a>
+      <p>{{ post.description }}</p>
+      <a href="{{ post.url }}">更多</a>
     </div>
-    <div class="header"><a class="slider-link" rel="section2">[推荐]精彩活动标题二</a></div>
+    {% endfor %}
+    <!-- <div class="header"><a class="slider-link" rel="section2">[推荐]精彩活动标题二</a></div>
     <div class="content">
       <p>活动二介绍巴拉巴拉巴拉巴拉巴拉巴拉</p>
       <a href="">Read more</a>
@@ -28,7 +33,7 @@
     <div class="content">
       <p>活动三介绍巴拉巴拉巴拉巴拉巴拉巴拉</p>
       <a href="">Read more</a>
-    </div>
+    </div> -->
 </div>
 
 </div>
@@ -64,11 +69,11 @@
 <div class="row2" id="summary-container">
   <h2 class="shequ" >社区项目</h2>
      <div class="pros">
-          {% for post in site.categories.project %}
-          <div class="col-md-3 ">
+          {% for post in site.categories.project limit:3%}
+          <div class="col-md-3 col-md-offset-1 ">
               <h4>{{ post.title }}</h4>
                   <p>{{ post.description }}</br></br>
-               <a href="{{post.url | prepend: site.baseurl}}">Detail>></a></p>
+               <a href="{{ post.link }}">更多>></a></p>
           </div>
           {% endfor %}
           <!-- <div class="col-md-3 col-md-offset-1">
@@ -134,7 +139,7 @@
       <img class="img-circle smallimage" src="images/2-small.jpg" style="display:inline ;margin-left:100px;"alt="">
       <img class="img-circle smallimage" src="images/2-small.jpg" style="display:inline  ;margin-left:100px;"alt="">
       <img class="img-circle smallimage" src="images/2-small.jpg" style="display:inline ;margin-left:100px;"alt="">
-<p style="margin-left:40px;margin-top:40px;"><a href="#">联系我们>></a></p>
+<p style="margin-left:40px;margin-top:40px;"><a href="contact.html">联系我们>></a></p>
 </div>
 
 <div style="height:0;overflow:hidden;border-top:1px solid #CCC">
